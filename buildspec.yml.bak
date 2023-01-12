@@ -1,13 +1,6 @@
 version: 0.2
 
-env:
-  variables:
-    SAFE_VAR: "World"
-
 phases:
-  install:
-    runtime-versions:
-      java: corretto11
       
   pre_build:
     commands:
@@ -16,13 +9,14 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn install
-      - git config --global user.email  "slkdesignsa@gmail.com"
-      - git config --global user.name  sikhumbuzok
-      - git checkout master
+      - git config --global user.email "slkdesignsa@gmail.com"
+      - git config --global user.name 'sikhumbuzok'
+      - git clone https://sikhumbuzok:S1khumbuz0@bitbucket.org/sikhumbuzok/messageutil.git
+      - cd messageutil
+      - git checkout dev
       - touch test.txt
       - git add .
-      - git commit -m "test"
+      - git commit -m "test2"
       - git push
   post_build:
     commands:
