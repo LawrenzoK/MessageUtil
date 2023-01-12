@@ -1,0 +1,29 @@
+version: 0.2
+
+env:
+  variables:
+    SAFE_VAR: "World"
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+      
+  pre_build:
+    commands:
+      - echo Pre Build started on `date`
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn install
+      - git config --global user.email  "slkdesignsa@gmail.com"
+      - git config --global user.name  sikhumbuzok
+      - git checkout master
+      - touch test.txt
+      - git add .
+      - git commit -m "test"
+      - git push
+  post_build:
+    commands:
+      - echo Build completed on `date`

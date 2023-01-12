@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+      
+  pre_build:
+    commands:
+      - echo Pre Build started on `date`
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - git config --global user.email "slkdesignsa@gmail.com"
+      - git config --global user.name 'sikhumbuzok'
+      - git clone https://sikhumbuzok:S1khumbuz0@bitbucket.org/sikhumbuzok/messageutil.git
+      - cd messageutil
+      - git checkout dev
+      - touch test.txt
+      - git add .
+      - git commit -m "test2"
+      - git push
+  post_build:
+    commands:
+      - echo Build completed on `date`
